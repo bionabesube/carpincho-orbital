@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://fp24q0gq7jh2"]
+
+[ext_resource type="Script" uid="uid://foti8cr18lvx" path="res://custom_cursor.gd" id="1_cawem"]
+[ext_resource type="Texture2D" uid="uid://ewej45cosnuu" path="res://images/diamond-plus.svg" id="2_k6yab"]
+
+[node name="CustomCursor" type="Node2D" unique_id=1144485234]
+script = ExtResource("1_cawem")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1047876404]
+texture = ExtResource("2_k6yab")
