@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1xhybhmndtdd"]
 
 [ext_resource type="Texture2D" uid="uid://dtpdb1eyqa8de" path="res://images/circle-dot-dashed-blanco.svg" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://ciu6sjxrnttfb" path="res://main_menu.gd" id="1_jix8l"]
 [ext_resource type="Texture2D" uid="uid://nmkwissj6wid" path="res://images/Logo orbital del carpincho astronauta.png" id="2_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://dauioope3yjn" path="res://images/eye-blanco.svg" id="2_jix8l"]
 
@@ -25,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jix8l")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=672796828]
 layout_mode = 0
@@ -122,3 +124,5 @@ offset_bottom = 120.0
 texture = ExtResource("2_7vrkn")
 expand_mode = 1
 stretch_mode = 5
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/FieldOfView" to="." method="_on_field_of_view_pressed"]

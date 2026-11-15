@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c1xhybhmndtdd" path="res://main_menu.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c3dtaeqvfbyai" path="res://background.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://1nvxvxtx3aq6" path="res://screen.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://fp24q0gq7jh2" path="res://custom_cursor.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Node3D" unique_id=408378875]
 transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
@@ -13,7 +14,6 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Screen" parent="." unique_id=1347283870 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, -2)
-visible = false
 curvatura = 0.35
 radio_esquinas = 0.18
 
@@ -29,3 +29,7 @@ default_color = Color(0.65882355, 0.47058824, 0.9411765, 1)
 
 [node name="Background" parent="." unique_id=591175879 instance=ExtResource("1_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="CustomCursor" parent="." unique_id=1144485234 instance=ExtResource("4_1bvp3")]
+
+[connection signal="fieldOfView_pressed" from="Camera3D/MainMenu" to="Screen" method="_on_main_menu_field_of_view_pressed"]

@@ -7,6 +7,9 @@ extends Node3D
 @export var radio_esquinas: float = 0.10
 @export var grosor_borde: float = 0.005
 
+var material_fondo: StandardMaterial3D
+var textura_original: Texture2D
+
 func _ready() -> void:
 	crear_pantalla()
 
@@ -60,14 +63,15 @@ func crear_pantalla() -> void:
 			superficie.set_uv(uv)
 			superficie.add_vertex(punto_3d(p))
 
-	var material = StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.albedo_color = Color.WHITE
-	material.albedo_texture = load("res://images/fondo.png")
+	material_fondo = StandardMaterial3D.new()
+	material_fondo.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material_fondo.albedo_color = Color.WHITE
+	textura_original = load("res://images/fondo.png")
+	material_fondo.albedo_texture = textura_original
 
 	var panel = MeshInstance3D.new()
 	panel.mesh = superficie.commit()
-	panel.material_override = material
+	panel.material_override = material_fondo
 	add_child(panel)
 
 	var borde = SurfaceTool.new()
@@ -95,3 +99,15 @@ func crear_pantalla() -> void:
 	marco.mesh = borde.commit()
 	marco.material_override = luz
 	add_child(marco)
+
+func cambiar_fondo() -> void:
+	if material_fondo.albedo_texture != null:
+		material_fondo.albedo_texture = null
+		material_fondo.albedo_color = Color.BLACK
+	else:
+		material_fondo.albedo_texture = textura_original
+		material_fondo.albedo_color = Color.WHITE
+
+
+func _on_main_menu_field_of_view_pressed() -> void:
+	cambiar_fondo()
