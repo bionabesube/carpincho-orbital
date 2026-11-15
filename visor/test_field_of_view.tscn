@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://djuiwvkt2mshw"]
+
+[ext_resource type="Script" uid="uid://r7m8iy7ce0n6" path="res://test_field_of_view.gd" id="1_evi84"]
+
+[node name="TestFieldOfView" type="Control" unique_id=864330123]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_evi84")
+
+[node name="Button" type="Button" parent="." unique_id=1021624503]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 558.0
+offset_right = 676.0
+offset_bottom = 618.0
+text = "Press Space"

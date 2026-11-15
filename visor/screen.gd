@@ -111,3 +111,5 @@ func cambiar_fondo() -> void:
 
 func _on_main_menu_field_of_view_pressed() -> void:
 	cambiar_fondo()
+	
+	

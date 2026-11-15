@@ -17,3 +17,7 @@ func _on_field_of_view_pressed() -> void:
 	fieldOfView_pressed.emit()
 	var menu = get_tree().current_scene.get_node("Camera3D/MainMenu")
 	menu.hide()
+	
+	var fieldOfView = get_tree().current_scene.get_node("Camera3D/TestFieldOfView")
+	fieldOfView.show()
+	fieldOfView.start()
