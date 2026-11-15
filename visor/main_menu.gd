@@ -1,6 +1,7 @@
 extends Control
 
 signal fieldOfView_pressed
+signal eyeTraking_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,4 +16,9 @@ func _process(delta: float) -> void:
 
 func _on_field_of_view_pressed() -> void:
 	fieldOfView_pressed.emit()
+	hide()
+
+
+func _on_eye_traking_pressed() -> void:
+	eyeTraking_pressed.emit()
 	hide()
