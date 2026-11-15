@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://djuiwvkt2mshw"]
 
 [ext_resource type="Script" uid="uid://r7m8iy7ce0n6" path="res://test_field_of_view.gd" id="1_evi84"]
+[ext_resource type="Texture2D" uid="uid://cqt5lga56qeki" path="res://images/plus.png" id="2_sxdgg"]
+[ext_resource type="Texture2D" uid="uid://nmkwissj6wid" path="res://images/Logo orbital del carpincho astronauta.png" id="3_rjxw0"]
 
 [node name="TestFieldOfView" type="Control" unique_id=864330123]
 layout_mode = 3
@@ -18,3 +20,34 @@ offset_top = 558.0
 offset_right = 676.0
 offset_bottom = 618.0
 text = "Press Space"
+
+[node name="Panel" type="Panel" parent="." unique_id=1695027062]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 551.0
+offset_top = 299.0
+offset_right = 601.0
+offset_bottom = 349.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1192346912]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("2_sxdgg")
+
+[node name="Panel2" type="Panel" parent="." unique_id=1504282009]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 130.0
+offset_right = 320.0
+offset_bottom = 250.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel2" unique_id=233835211]
+self_modulate = Color(1, 1, 1, 0.54901963)
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 120.0
+texture = ExtResource("3_rjxw0")
+expand_mode = 1
+stretch_mode = 5
