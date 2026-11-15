@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c3dtaeqvfbyai" path="res://background.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://1nvxvxtx3aq6" path="res://screen.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://djuiwvkt2mshw" path="res://test_field_of_view.tscn" id="2_lquwl"]
-[ext_resource type="Script" uid="uid://r7m8iy7ce0n6" path="res://test_field_of_view.gd" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://fp24q0gq7jh2" path="res://custom_cursor.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c5riypfo77dx4" path="res://target.tscn" id="5_272bh"]
 
@@ -17,7 +16,6 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="TestFieldOfView" parent="Camera3D" unique_id=864330123 instance=ExtResource("2_lquwl")]
 visible = false
-script = ExtResource("3_7mycd")
 
 [node name="Screen" parent="." unique_id=1347283870 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, -2)
@@ -40,5 +38,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="CustomCursor" parent="." unique_id=1144485234 instance=ExtResource("4_1bvp3")]
 
+[connection signal="eyeTraking_pressed" from="Camera3D/MainMenu" to="Screen" method="_on_main_menu_eye_traking_pressed"]
 [connection signal="fieldOfView_pressed" from="Camera3D/MainMenu" to="Camera3D/TestFieldOfView" method="_on_main_menu_field_of_view_pressed"]
 [connection signal="fieldOfView_pressed" from="Camera3D/MainMenu" to="Screen" method="_on_main_menu_field_of_view_pressed"]

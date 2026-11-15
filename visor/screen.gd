@@ -11,6 +11,7 @@ var target_speed: float = 0.25
 
 var material_fondo: StandardMaterial3D
 var textura_original: Texture2D
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	crear_pantalla()
@@ -120,10 +121,43 @@ func _on_main_menu_field_of_view_pressed() -> void:
 	
 	add_child(target)
 	
-	target.position = Vector3(1.5, 0, -0.3)
+	target.position = Vector3(1.45, 0, -0.3)
 	
 	target.set_up(
 		Vector2(-1, 0),
 		target_speed,
 		true
 	)
+
+
+func _on_main_menu_eye_traking_pressed() -> void:
+	cambiar_fondo()
+	spawn_still_target()
+	spawn_still_target()
+	spawn_still_target()
+	spawn_still_target()
+	spawn_still_target()
+	spawn_still_target()
+	spawn_still_target()
+	spawn_still_target()
+	spawn_still_target()
+	spawn_still_target()
+
+func spawn_still_target() -> void:
+	var position_x = rng.randf_range(-1.45, 1.45)
+	var position_y = rng.randf_range(-0.7, 0.7)
+	var position_z = -0.3
+	
+	var target = target_scene.instantiate()
+	
+	add_child(target)
+	
+	target.position = Vector3(position_x, position_y, position_z)
+	#target.position = Vector3(1.5, 0, -0.3)
+	
+	target.set_up(
+		Vector2(0, 0),
+		0.0,
+		false
+	)
+	
