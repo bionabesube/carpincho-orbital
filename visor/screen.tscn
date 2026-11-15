@@ -5,4 +5,5 @@
 [node name="Screen" type="Node3D" unique_id=1347283870]
 script = ExtResource("1_vouji")
 ancho = 3.2
+curvatura = 0.0
 grosor_borde = 0.025

@@ -1,6 +1,8 @@
 @tool
 extends Node3D
 
+@export var target_scene: PackedScene
+var target_speed: float = 0.25
 @export var ancho: float = 4.2
 @export var alto: float = 1.8
 @export var curvatura: float = 0.30
@@ -109,7 +111,19 @@ func cambiar_fondo() -> void:
 		material_fondo.albedo_color = Color.WHITE
 
 
+
+
 func _on_main_menu_field_of_view_pressed() -> void:
 	cambiar_fondo()
 	
+	var target = target_scene.instantiate()
 	
+	add_child(target)
+	
+	target.position = Vector3(1.5, 0, -0.3)
+	
+	target.set_up(
+		Vector2(-1, 0),
+		target_speed,
+		true
+	)

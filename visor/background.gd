@@ -31,7 +31,6 @@ func spawn_star():
 	# Instanciar estrella
 	var star = star_scene.instantiate()
 	
-
 	add_child(star)
 
 	# Posición inicial: centro del fondo
