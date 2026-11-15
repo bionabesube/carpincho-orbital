@@ -1,0 +1,206 @@
+{
+  "astronaut_id": "ASTRO-DEMO-01",
+  "session_id": "CO-VF-EYETRACK-OD-DEMO",
+  "tested_at": "2026-11-15T13:45:00Z",
+  "eye": "OD",
+  "protocol_name": "Carpincho Orbital · VR visual field exploratory",
+  "protocol_version": "0.3-demo",
+  "stimulus_profile": "fixed-luminance-demo-not-calibrated",
+  "points": [
+    {
+      "x_deg": -18,
+      "y_deg": -12,
+      "seen": true,
+      "reaction_time_ms": 380
+    },
+    {
+      "x_deg": -12,
+      "y_deg": -12,
+      "seen": true,
+      "reaction_time_ms": 397
+    },
+    {
+      "x_deg": -6,
+      "y_deg": -12,
+      "seen": true,
+      "reaction_time_ms": 414
+    },
+    {
+      "x_deg": 6,
+      "y_deg": -12,
+      "seen": true,
+      "reaction_time_ms": 431
+    },
+    {
+      "x_deg": 12,
+      "y_deg": -12,
+      "seen": true,
+      "reaction_time_ms": 448
+    },
+    {
+      "x_deg": 18,
+      "y_deg": -12,
+      "seen": true,
+      "reaction_time_ms": 465
+    },
+    {
+      "x_deg": -18,
+      "y_deg": -6,
+      "seen": true,
+      "reaction_time_ms": 482
+    },
+    {
+      "x_deg": -12,
+      "y_deg": -6,
+      "seen": true,
+      "reaction_time_ms": 384
+    },
+    {
+      "x_deg": -6,
+      "y_deg": -6,
+      "seen": true,
+      "reaction_time_ms": 401
+    },
+    {
+      "x_deg": 6,
+      "y_deg": -6,
+      "seen": true,
+      "reaction_time_ms": 418
+    },
+    {
+      "x_deg": 12,
+      "y_deg": -6,
+      "seen": true,
+      "reaction_time_ms": 435
+    },
+    {
+      "x_deg": 18,
+      "y_deg": -6,
+      "seen": true,
+      "reaction_time_ms": 452
+    },
+    {
+      "x_deg": -18,
+      "y_deg": 0,
+      "seen": true,
+      "reaction_time_ms": 469
+    },
+    {
+      "x_deg": -12,
+      "y_deg": 0,
+      "seen": true,
+      "reaction_time_ms": 486
+    },
+    {
+      "x_deg": -6,
+      "y_deg": 0,
+      "seen": true,
+      "reaction_time_ms": 388
+    },
+    {
+      "x_deg": 6,
+      "y_deg": 0,
+      "seen": true,
+      "reaction_time_ms": 405
+    },
+    {
+      "x_deg": 12,
+      "y_deg": 0,
+      "seen": false,
+      "reaction_time_ms": null
+    },
+    {
+      "x_deg": 18,
+      "y_deg": 0,
+      "seen": false,
+      "reaction_time_ms": null
+    },
+    {
+      "x_deg": -18,
+      "y_deg": 6,
+      "seen": true,
+      "reaction_time_ms": 456
+    },
+    {
+      "x_deg": -12,
+      "y_deg": 6,
+      "seen": true,
+      "reaction_time_ms": 473
+    },
+    {
+      "x_deg": -6,
+      "y_deg": 6,
+      "seen": true,
+      "reaction_time_ms": 490
+    },
+    {
+      "x_deg": 6,
+      "y_deg": 6,
+      "seen": true,
+      "reaction_time_ms": 392
+    },
+    {
+      "x_deg": 12,
+      "y_deg": 6,
+      "seen": false,
+      "reaction_time_ms": null
+    },
+    {
+      "x_deg": 18,
+      "y_deg": 6,
+      "seen": true,
+      "reaction_time_ms": 426
+    },
+    {
+      "x_deg": -18,
+      "y_deg": 12,
+      "seen": true,
+      "reaction_time_ms": 443
+    },
+    {
+      "x_deg": -12,
+      "y_deg": 12,
+      "seen": true,
+      "reaction_time_ms": 460
+    },
+    {
+      "x_deg": -6,
+      "y_deg": 12,
+      "seen": true,
+      "reaction_time_ms": 477
+    },
+    {
+      "x_deg": 6,
+      "y_deg": 12,
+      "seen": true,
+      "reaction_time_ms": 494
+    },
+    {
+      "x_deg": 12,
+      "y_deg": 12,
+      "seen": true,
+      "reaction_time_ms": 396
+    },
+    {
+      "x_deg": 18,
+      "y_deg": 12,
+      "seen": true,
+      "reaction_time_ms": 413
+    }
+  ],
+  "catch_trial_count": 5,
+  "false_positive_count": 0,
+  "head_motion_events": 2,
+  "eye_tracking_available": true,
+  "fixation_loss_pct": 4.2,
+  "eye_tracking": {
+    "tracking_valid_pct": 96.8,
+    "gaze_on_target_pct": 92.4,
+    "fixation_dispersion_deg": 1.12,
+    "mean_gaze_error_deg": 0.76,
+    "blink_count": 14,
+    "saccade_count": 39,
+    "sample_count": 1840
+  },
+  "notes": "Fully synthetic data for testing the integration. These are not real results and have not been clinically validated."
+}
