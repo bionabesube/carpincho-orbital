@@ -45,14 +45,25 @@ func crear_pantalla() -> void:
 
 	for i in range(interior.size()):
 		var siguiente = (i + 1) % interior.size()
-		superficie.add_vertex(Vector3.ZERO)
-		superficie.add_vertex(punto_3d(interior[i]))
-		superficie.add_vertex(punto_3d(interior[siguiente]))
+
+		var puntos = [
+			Vector2.ZERO,
+			interior[i],
+			interior[siguiente]
+		]
+
+		for p in puntos:
+			var uv = Vector2(
+				p.x / ancho + 0.5,
+				p.y / alto + 0.5
+			)
+			superficie.set_uv(uv)
+			superficie.add_vertex(punto_3d(p))
 
 	var material = StandardMaterial3D.new()
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.albedo_color = Color("0f0d13ff")
-	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	material.albedo_color = Color.WHITE
+	material.albedo_texture = load("res://images/fondo.png")
 
 	var panel = MeshInstance3D.new()
 	panel.mesh = superficie.commit()

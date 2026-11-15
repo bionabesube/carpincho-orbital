@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c1xhybhmndtdd"]
 
-[ext_resource type="Texture2D" uid="uid://jlgmjrlij08a" path="res://images/circle-dot-dashed.svg" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://dtpdb1eyqa8de" path="res://images/circle-dot-dashed-blanco.svg" id="1_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://nmkwissj6wid" path="res://images/Logo orbital del carpincho astronauta.png" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://dauioope3yjn" path="res://images/eye-blanco.svg" id="2_jix8l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0b3p"]
 bg_color = Color(0.2, 0.18039216, 0.23529412, 0.44705883)
@@ -26,8 +28,10 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=672796828]
 layout_mode = 0
-offset_right = 700.0
-offset_bottom = 200.0
+offset_left = 226.0
+offset_top = 190.0
+offset_right = 926.0
+offset_bottom = 390.0
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1570734691]
@@ -39,11 +43,13 @@ text = "Visual Training"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1322043358]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
 offset_transform_enabled = true
-theme_override_constants/separation = 14
+offset_transform_position = Vector2(0, 40)
+offset_transform_pivot_ratio = Vector2(0, 0)
+offset_transform_visual_only = false
+theme_override_constants/separation = 29
 alignment = 1
 
 [node name="FieldOfView" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=792173352]
@@ -53,7 +59,8 @@ offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxFlat_h0b3p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h0b3p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h0b3p")
-text = "Field of view        >"
+text = "
+        Field of view       >"
 icon_alignment = 1
 vertical_icon_alignment = 0
 
@@ -63,14 +70,15 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 80.0
 offset_top = 10.0
-offset_right = 120.0
-offset_bottom = 50.0
+offset_right = 110.0
+offset_bottom = 40.0
+scale = Vector2(0.8, 0.8)
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/FieldOfView/Panel" unique_id=1599669706]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_06t4h")
+texture = ExtResource("1_fu7sn")
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2081987669]
 custom_minimum_size = Vector2(200, 0)
@@ -79,4 +87,38 @@ offset_transform_enabled = true
 theme_override_styles/normal = SubResource("StyleBoxFlat_h0b3p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h0b3p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h0b3p")
-text = "Seguimiento Ocular    >"
+text = "
+   Seguimiento Ocular  >"
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/Button2" unique_id=37555301]
+modulate = Color(0.6156863, 0.4627451, 0.93333334, 1)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 80.0
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 50.0
+scale = Vector2(0.9, 0.9)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Button2/Panel" unique_id=305435146]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_jix8l")
+
+[node name="Panel" type="Panel" parent="." unique_id=682559917]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 130.0
+offset_right = 320.0
+offset_bottom = 250.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=838103619]
+self_modulate = Color(1, 1, 1, 0.54901963)
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 120.0
+texture = ExtResource("2_7vrkn")
+expand_mode = 1
+stretch_mode = 5
