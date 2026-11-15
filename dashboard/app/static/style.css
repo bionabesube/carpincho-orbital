@@ -1498,4 +1498,9 @@ progress {
   outline-offset: 3px;
 }
 
+html,
+body,
+#root {
+  background: #ff00ff !important;
+}
 
