@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://r3uf6tx3wdxy"]
+
+[ext_resource type="Script" uid="uid://pvv7xj82cag7" path="res://star.gd" id="1_46ao5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b7hpn"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfuxe"]
+albedo_color = Color(18.892157, 18.892157, 18.892157, 1)
+grow_amount = -0.421
+
+[node name="Star" type="MeshInstance3D" unique_id=1334276524]
+mesh = SubResource("CapsuleMesh_b7hpn")
+surface_material_override/0 = SubResource("StandardMaterial3D_hfuxe")
+script = ExtResource("1_46ao5")

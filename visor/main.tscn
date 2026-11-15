@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccegd1fk0ifuq"]
 
 [ext_resource type="PackedScene" uid="uid://c1xhybhmndtdd" path="res://main_menu.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://c3dtaeqvfbyai" path="res://background.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://1nvxvxtx3aq6" path="res://screen.tscn" id="1_ig7tw"]
 
 [node name="Main" type="Node3D" unique_id=408378875]
@@ -16,5 +17,9 @@ offset_bottom = 200.0
 
 [node name="Screen" parent="." unique_id=1347283870 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, -2)
+visible = false
 curvatura = 0.35
 radio_esquinas = 0.18
+
+[node name="Background" parent="." unique_id=591175879 instance=ExtResource("1_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
