@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c1xhybhmndtdd"]
+
+[ext_resource type="Texture2D" uid="uid://jlgmjrlij08a" path="res://images/circle-dot-dashed.svg" id="1_06t4h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0b3p"]
+bg_color = Color(0.2, 0.18039216, 0.23529412, 0.44705883)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.46251643, 0.22155929, 0.7496542, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.043137256)
+shadow_offset = Vector2(15, 0)
+
+[node name="MainMenu" type="Control" unique_id=885838846]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=672796828]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 200.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1570734691]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -20)
+theme_override_font_sizes/font_size = 28
+text = "Visual Training"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1322043358]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="FieldOfView" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=792173352]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_h0b3p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h0b3p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h0b3p")
+text = "Field of view        >"
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/FieldOfView" unique_id=1485487754]
+modulate = Color(0.6156863, 0.4627451, 0.93333334, 1)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 80.0
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 50.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/FieldOfView/Panel" unique_id=1599669706]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_06t4h")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=2081987669]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_h0b3p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h0b3p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h0b3p")
+text = "Seguimiento Ocular    >"

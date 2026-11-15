@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://1nvxvxtx3aq6"]
 
-[ext_resource type="Script" uid="uid://v66280686m10" path="res://screen.gd" id="1_vouji"]
+[ext_resource type="Script" uid="uid://b0k15kdr2n62u" path="res://screen.gd" id="1_vouji"]
 
-[node name="Screen" type="MeshInstance3D" unique_id=1940350666]
+[node name="Screen" type="Node3D" unique_id=1347283870]
 script = ExtResource("1_vouji")
+ancho = 3.2
+grosor_borde = 0.025
