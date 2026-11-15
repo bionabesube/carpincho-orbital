@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c3dtaeqvfbyai"]
+
+[ext_resource type="Script" uid="uid://dtutdsl2tdwqf" path="res://background.gd" id="1_oabld"]
+[ext_resource type="PackedScene" uid="uid://r3uf6tx3wdxy" path="res://star.tscn" id="2_i7s6n"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_b7hpn"]
+size = Vector2(30, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfuxe"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Background" type="MeshInstance3D" unique_id=591175879]
+mesh = SubResource("QuadMesh_b7hpn")
+surface_material_override/0 = SubResource("StandardMaterial3D_hfuxe")
+script = ExtResource("1_oabld")
+star_scene = ExtResource("2_i7s6n")
