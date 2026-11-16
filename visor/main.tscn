@@ -75,4 +75,5 @@ script = ExtResource("8_5vw27")
 [connection signal="end_test_eye_traking" from="Screen" to="Screen" method="_on_end_test_eye_traking"]
 [connection signal="end_test_eye_traking" from="Screen" to="Background2" method="_on_screen_end_test_eye_traking"]
 [connection signal="new_target_position" from="Screen" to="CustomCursor" method="_on_screen_new_target_position"]
+[connection signal="target_found" from="CustomCursor" to="Camera3D/test_eye_traking" method="_on_custom_cursor_target_found"]
 [connection signal="target_found" from="CustomCursor" to="Screen" method="_on_custom_cursor_target_found"]

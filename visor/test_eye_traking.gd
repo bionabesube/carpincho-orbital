@@ -22,7 +22,6 @@ func _on_screen_end_test_eye_traking() -> void:
 
 
 func _on_custom_cursor_target_found() -> void:
-	print("target found")
 	count += 1
 	if count < 10:
 		$Label.set_text(str(count)+"/10")
