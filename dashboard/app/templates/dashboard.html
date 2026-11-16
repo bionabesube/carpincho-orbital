@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/style.css">
-  <script src="https://cdn.jsdeliVR.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css?v=lavender-glass-3">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -18,12 +18,12 @@
         <span class="brand-wordmark"><strong>CARPINCHO ORBITAL</strong><small>HEALTH MONITORING</small></span>
       </a>
       <div class="sidebar-label">MISSION WORKSPACE</div>
-      <a class="side-link active" href="/"><span class="side-icon">⌂</span> Overview</a>
-      <a class="side-link" href="#visual-field"><span class="side-icon">◉</span> VR · Visual Field</a>
-      <a class="side-link" href="#clinical-data"><span class="side-icon">＋</span> Physical Tests</a>
-      <a class="side-link" href="#wearables"><span class="side-icon">⌁</span> Wearables</a>
-      <a class="side-link" href="#symptoms"><span class="side-icon">＋</span> Symptoms</a>
-      <a class="side-link" href="#followups"><span class="side-icon">▦</span> Follow-up</a>
+      <a class="side-link active" href="#overview" data-view="overview" aria-current="page"><span class="side-icon">⌂</span> Overview</a>
+      <a class="side-link" href="#visual-field" data-view="visual-field"><span class="side-icon">◉</span> VR · Visual Field</a>
+      <a class="side-link" href="#clinical-data" data-view="clinical-data"><span class="side-icon">＋</span> Physical Tests</a>
+      <a class="side-link" href="#wearables" data-view="wearables"><span class="side-icon">⌁</span> Wearables</a>
+      <a class="side-link" href="#symptoms" data-view="symptoms"><span class="side-icon">＋</span> Symptoms</a>
+      <a class="side-link" href="#followups" data-view="followups"><span class="side-icon">▦</span> Follow-up</a>
       <div class="sidebar-spacer"></div>
       <div class="sidebar-note">
         <span class="status-dot"></span>
@@ -98,28 +98,112 @@
           </div>
         </div>
         <div class="anatomy-visual-wrap">
-          <svg class="anatomy-visual" viewBox="0 0 360 300" role="img" aria-label="Illustrative human body map highlighting the brain, eyes, optic pathway, or wrist depending on selected study">
+          <svg class="anatomy-visual" viewBox="0 0 360 420" role="img" aria-label="Illustrative holographic front-view human anatomy highlighting the brain, eyes, optic pathways or wrist sensor depending on selected study">
             <defs>
-              <linearGradient id="silhouetteFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#234b68"/><stop offset="1" stop-color="#102b43"/></linearGradient>
-              <filter id="anatomyGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <linearGradient id="silhouetteFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#E7D8FF" stop-opacity=".48"/>
+                <stop offset=".48" stop-color="#A984E0" stop-opacity=".25"/>
+                <stop offset="1" stop-color="#543A7A" stop-opacity=".36"/>
+              </linearGradient>
+              <linearGradient id="brainFill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#F6E9FF"/>
+                <stop offset="1" stop-color="#AC81EB"/>
+              </linearGradient>
+              <linearGradient id="anatomyStroke" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#E8D9FF" stop-opacity=".90"/>
+                <stop offset="1" stop-color="#9C74D5" stop-opacity=".58"/>
+              </linearGradient>
+              <filter id="anatomyGlow" x="-90%" y="-90%" width="280%" height="280%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="bodyGlow" x="-55%" y="-35%" width="210%" height="180%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
             </defs>
-            <g class="body-outline" fill="url(#silhouetteFill)" stroke="#5c829b" stroke-width="2.2" stroke-linejoin="round">
-              <circle cx="180" cy="48" r="31"/><path d="M165 79 L165 93 Q130 100 112 119 L83 205 Q78 220 91 226 Q103 231 109 216 L133 151 L137 208 L128 281 Q127 292 140 292 L155 291 L180 222 L205 291 L220 292 Q233 292 232 280 L223 208 L227 151 L251 216 Q257 231 270 226 Q282 220 277 205 L248 119 Q230 100 195 93 L195 79 Z"/>
-              <path d="M166 92 L180 106 L194 92" fill="none" stroke="#7094a9"/>
+
+            <!-- Restrained orbital guide lines keep the medical figure as the focus. -->
+            <g class="anatomy-orbit" fill="none" stroke="#B994F0" stroke-width="1">
+              <ellipse cx="180" cy="207" rx="111" ry="184" stroke-opacity=".14"/>
+              <ellipse cx="180" cy="207" rx="91" ry="165" stroke-opacity=".09" stroke-dasharray="3 7"/>
+              <path d="M42 207 H318 M180 10 V405" stroke-opacity=".10" stroke-dasharray="2 8"/>
             </g>
-            <g class="body-map-part part-brain" data-anatomy="brain" filter="url(#anatomyGlow)"><path d="M159 42 Q151 28 163 23 Q171 14 181 23 Q194 16 201 29 Q213 36 204 48 Q204 60 191 61 Q181 69 170 60 Q156 61 159 42Z" fill="#ffae43" fill-opacity=".9" stroke="#ffd18a" stroke-width="2"/><path d="M165 35 Q175 29 171 45 M183 25 Q179 40 187 46 M198 35 Q190 44 196 54" fill="none" stroke="#713d26" stroke-width="1.6"/></g>
-            <g class="body-map-part part-eyes" data-anatomy="eyes" filter="url(#anatomyGlow)"><path d="M151 48 Q160 39 169 48 Q160 57 151 48Z M190 48 Q199 39 208 48 Q199 57 190 48Z" fill="#55d7ee" stroke="#c0f6ff" stroke-width="1.8"/><circle cx="160" cy="48" r="3" fill="#061a2c"/><circle cx="199" cy="48" r="3" fill="#061a2c"/></g>
-            <g class="body-map-part part-optic" data-anatomy="optic" filter="url(#anatomyGlow)"><path d="M160 53 Q160 67 173 76 L180 84 M199 53 Q199 67 187 76 L180 84" fill="none" stroke="#ff704f" stroke-width="3.5" stroke-linecap="round"/><circle cx="180" cy="85" r="4" fill="#ffb347"/></g>
-            <g class="body-map-part part-wrist" data-anatomy="wrist" filter="url(#anatomyGlow)"><circle cx="96" cy="218" r="10" fill="#55d7ee" stroke="#c2f7ff" stroke-width="2"/><path d="M86 218 H106" stroke="#061a2c" stroke-width="2"/></g>
-            <g class="anatomy-callouts" fill="none" stroke="#6d94ad" stroke-width="1.2" stroke-dasharray="3 4"><path d="M211 34 L272 20 H327"/><path d="M207 77 L273 103 H327"/><path d="M96 218 L42 246 H14"/></g>
-            <g fill="#a9c5d7" font-family="DM Sans, sans-serif" font-size="9" letter-spacing="1"><text x="276" y="15">BRAIN</text><text x="276" y="98">VISUAL PATHWAY</text><text x="12" y="263">WEARABLE</text></g>
-            <g class="anatomy-ring" fill="none" stroke="#55d7ee" stroke-width="1.2" stroke-dasharray="3 6"><circle cx="180" cy="47" r="48"/><ellipse cx="180" cy="47" rx="74" ry="62"/></g>
+
+            <!-- Human silhouette: front view, neutral anatomical proportions. -->
+            <g class="body-outline" fill="url(#silhouetteFill)" stroke="url(#anatomyStroke)" stroke-width="1.55" stroke-linejoin="round" stroke-linecap="round" filter="url(#bodyGlow)">
+              <!-- Head and neck -->
+              <path d="M180 24 C160 24 148 40 149 60 C150 78 163 91 180 96 C197 91 210 78 211 60 C212 40 200 24 180 24 Z"/>
+              <path d="M166 91 L166 108 Q180 114 194 108 L194 91 Z"/>
+              <!-- Torso and pelvis: narrower waist, soft shoulders and natural hip contour -->
+              <path d="M165 104 C154 106 141 109 132 116 C122 123 118 136 121 151 L134 204 C138 221 146 234 157 242 L153 261 C160 271 170 277 180 277 C190 277 200 271 207 261 L203 242 C214 234 222 221 226 204 L239 151 C242 136 238 123 228 116 C219 109 206 106 195 104 Z"/>
+              <!-- Left upper arm, forearm and hand -->
+              <path d="M132 115 C121 119 114 128 110 142 L94 191 C90 203 87 215 90 225 C92 232 99 234 105 229 C109 225 112 214 115 204 L130 162 L145 137 C146 127 142 119 132 115 Z"/>
+              <path d="M94 220 C86 232 80 247 77 261 L72 282 C70 291 74 297 81 296 C87 295 89 287 91 280 L98 258 C102 246 108 236 105 228 Z"/>
+              <path d="M74 279 C68 292 63 306 62 318 C61 325 66 329 71 326 L78 311 L75 328 C74 336 81 339 85 332 L92 314 L90 332 C90 340 97 341 101 334 L104 313 L108 325 C111 332 117 329 115 322 L109 298 C106 286 97 276 86 273 Z"/>
+              <!-- Right upper arm, forearm and hand -->
+              <path d="M228 115 C239 119 246 128 250 142 L266 191 C270 203 273 215 270 225 C268 232 261 234 255 229 C251 225 248 214 245 204 L230 162 L215 137 C214 127 218 119 228 115 Z"/>
+              <path d="M266 220 C274 232 280 247 283 261 L288 282 C290 291 286 297 279 296 C273 295 271 287 269 280 L262 258 C258 246 252 236 255 228 Z"/>
+              <path d="M286 279 C292 292 297 306 298 318 C299 325 294 329 289 326 L282 311 L285 328 C286 336 279 339 275 332 L268 314 L270 332 C270 340 263 341 259 334 L256 313 L252 325 C249 332 243 329 245 322 L251 298 C254 286 263 276 274 273 Z"/>
+              <!-- Legs and feet -->
+              <path d="M154 258 C147 274 143 293 143 313 L143 371 C143 383 150 391 160 391 C169 391 174 383 175 371 L180 282 C170 279 160 271 154 258 Z"/>
+              <path d="M206 258 C213 274 217 293 217 313 L217 371 C217 383 210 391 200 391 C191 391 186 383 185 371 L180 282 C190 279 200 271 206 258 Z"/>
+              <path d="M144 370 C143 383 137 393 129 400 C124 405 128 410 136 410 H162 C169 410 173 405 172 397 L169 373 Z"/>
+              <path d="M216 370 C217 383 223 393 231 400 C236 405 232 410 224 410 H198 C191 410 187 405 188 397 L191 373 Z"/>
+            </g>
+
+            <!-- Light anatomical landmarks: clavicles, rib cage, spine, joints and knees. -->
+            <g class="body-outline anatomy-detail-lines" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path class="body-detail" d="M145 124 Q180 140 215 124 M156 132 Q180 143 204 132"/>
+              <path class="body-detail-soft" d="M180 133 V245 M148 151 Q180 165 212 151 M145 169 Q180 184 215 169 M148 187 Q180 201 212 187 M153 205 Q180 218 207 205"/>
+              <path class="body-detail" d="M156 239 Q180 251 204 239 M160 250 Q180 259 200 250"/>
+              <path class="body-detail-soft" d="M130 147 L110 207 M230 147 L250 207 M96 219 Q101 225 108 222 M252 222 Q259 225 264 219"/>
+              <path class="body-detail-soft" d="M158 270 Q180 280 202 270 M160 285 Q180 293 200 285 M161 304 L158 360 M199 304 L202 360"/>
+              <path class="body-detail" d="M180 279 V303 M171 307 Q180 313 189 307"/>
+              <path class="body-detail-soft" d="M143 329 Q157 335 171 329 M189 329 Q203 335 217 329"/>
+              <path class="body-detail-soft" d="M166 96 Q180 103 194 96"/>
+            </g>
+
+            <!-- Brain, eyes and optic pathways stay linked to the study-focus controls. -->
+            <g class="body-map-part part-brain" data-anatomy="brain" filter="url(#anatomyGlow)">
+              <path d="M157 56 C150 48 155 37 165 38 C169 29 181 29 186 37 C197 32 207 41 202 51 C210 60 202 69 192 68 C184 75 173 72 169 67 C160 70 153 64 157 56 Z" fill="url(#brainFill)" fill-opacity=".96" stroke="#F0E4FF" stroke-width="1.35"/>
+              <path d="M166 41 C174 45 171 53 168 58 M181 37 C177 45 184 51 181 59 M197 42 C190 47 193 55 199 59 M174 64 Q181 57 188 65" fill="none" stroke="#7958A8" stroke-width="1.15" stroke-linecap="round"/>
+            </g>
+            <g class="body-map-part part-eyes" data-anatomy="eyes" filter="url(#anatomyGlow)">
+              <path d="M158 78 Q167 69 176 78 Q167 87 158 78 Z M184 78 Q193 69 202 78 Q193 87 184 78 Z" fill="#F0E5FF" stroke="#FFF8FF" stroke-width="1.4"/>
+              <circle cx="167" cy="78" r="2.5" fill="#7553A6"/><circle cx="193" cy="78" r="2.5" fill="#7553A6"/>
+            </g>
+            <g class="body-map-part part-optic" data-anatomy="optic" filter="url(#anatomyGlow)">
+              <path d="M167 85 C167 94 173 100 180 106 C187 100 193 94 193 85 M180 106 V122" fill="none" stroke="#FF9BD9" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="180" cy="122" r="3.3" fill="#FFD5ED" stroke="#FFF4FB" stroke-width="1"/>
+            </g>
+            <g class="body-map-part part-wrist" data-anatomy="wrist" filter="url(#anatomyGlow)">
+              <circle cx="88" cy="263" r="10" fill="#CBAAFF" stroke="#F4E9FF" stroke-width="1.8"/>
+              <circle cx="88" cy="263" r="3" fill="#6F4CA8"/>
+              <path d="M77 263 H99" stroke="#F1E5FF" stroke-width="1.4" stroke-linecap="round"/>
+            </g>
+
+            <!-- Callouts point to the regions highlighted by the selected study. -->
+            <g class="anatomy-callouts" fill="none" stroke-width="1.05" stroke-dasharray="3 4" stroke-linecap="round">
+              <path d="M207 43 L263 25 H333"/>
+              <path d="M193 111 L266 132 H333"/>
+              <path d="M88 263 L42 337 H12"/>
+            </g>
+            <g class="anatomy-labels" fill="#D5C2F1" font-family="DM Sans, sans-serif" font-size="8" font-weight="700" letter-spacing="1">
+              <text x="270" y="20">BRAIN</text>
+              <text x="270" y="126">OPTIC PATHWAY</text>
+              <text x="12" y="351">WRIST SENSOR</text>
+            </g>
+            <g class="anatomy-ring" fill="none" stroke-width="1.2" stroke-dasharray="3 6">
+              <circle cx="180" cy="59" r="43"/>
+              <ellipse cx="180" cy="207" rx="98" ry="168"/>
+            </g>
           </svg>
           <div class="anatomy-caption"><span class="live-dot cyan"></span><span id="focus-region-label">ACTIVE REGION · EYES / OPTIC PATHWAY / BRAIN</span></div>
         </div>
       </section>
 
-      <section class="kpi-grid">
+      <section class="kpi-grid" data-view-panel="overview">
         <article class="kpi-card">
           <div class="kpi-top"><span>Latest visual field</span><span class="kpi-symbol blue">◉</span></div>
           <div class="kpi-value">{% if visual_field_tests %}{{ visual_field_tests[0].tested_at.strftime('%b %d, %Y') }}{% else %}No data{% endif %}</div>
@@ -143,7 +227,7 @@
       </section>
 
       {% if role == 'clinician' %}
-      <section class="section-block">
+      <section class="section-block" id="overview-trends" data-view-panel="overview">
         <div class="section-heading"><div><div class="eyebrow">MISSION TRENDS</div><h2>Longitudinal Indicators</h2></div><span class="section-caption">Comparison of available records</span></div>
         <div class="chart-grid">
           <article class="panel chart-panel">
@@ -162,7 +246,7 @@
       </section>
       {% endif %}
 
-      <section class="section-block" id="visual-field">
+      <section class="section-block" id="visual-field" data-view-panel="visual-field">
         <div class="section-heading"><div><div class="eyebrow">PRIMARY FUNCTIONAL ASSESSMENT</div><h2>Visual Field + Eye Tracking · VR Headset</h2></div><span class="section-caption">Exploratory screening by eye</span></div>
         <div class="vf-summary-grid">
           {% for eye, test, points in [('OD', latest_vf_od, vf_od_points), ('OS', latest_vf_oi, vf_oi_points)] %}
@@ -223,7 +307,7 @@
         <div class="vf-method-note"><strong>VR / GODOT:</strong> the headset runs the visual-field task and, when supported by the hardware, records eye tracking (gaze, fixation, blinks, and saccades). This dashboard only receives and organizes those results; it does not run the test. The grid is exploratory: it displays detected/missed stimuli and is not equivalent to validated clinical perimetry. It does not calculate MD, PSD, or VFI. Gaze metrics depend on eye-tracker calibration and data quality.</div>
       </section>
 
-      <section class="section-block" id="clinical-data">
+      <section class="section-block" id="clinical-data" data-view-panel="clinical-data">
         <div class="section-heading"><div><div class="eyebrow">BASIC CLINICAL CHECKS</div><h2>Assessments Outside the Headset</h2></div>{% if role == 'clinician' %}<a href="#add-exam" class="text-link">+ Add result</a>{% endif %}</div>
         <p class="exam-intro">Basic tests performed with eye charts, near-vision cards, or optical correction. Results are entered manually by the assessment team; the dashboard does not perform these measurements.</p>
         <div class="exam-guide-grid">
@@ -273,7 +357,7 @@
         <p class="micro-note">Refraction and near point are recorded as results from basic external tests. A positive sphere value may be consistent with hyperopia, but interpretation belongs to a qualified professional. These tests do not directly measure intracranial pressure.</p>
       </section>
 
-      <section class="section-block" id="wearables">
+      <section class="section-block" id="wearables" data-view-panel="wearables">
         <div class="section-heading"><div><div class="eyebrow">PHYSIOLOGICAL MONITORING</div><h2>Wearables & Telemetry</h2></div><span class="section-caption">Daily aggregated records</span></div>
         <div class="wearable-grid">
           <div class="panel wearable-metrics">
@@ -308,8 +392,8 @@
         <p class="micro-note">Metrics are displayed according to availability and source. Do not combine signals from different devices without harmonizing units, sampling rates, and algorithms.</p>
       </section>
 
-      <section class="section-block lower-grid">
-        <div id="symptoms" class="panel lower-panel">
+      <section class="section-block lower-grid" data-view-container="symptoms-followups">
+        <div id="symptoms" class="panel lower-panel" data-view-panel="symptoms">
           <div class="section-heading inside"><div><div class="eyebrow">SELF-REPORT</div><h2>Symptoms & Notes</h2></div></div>
           {% if role == 'astronaut' %}
           <form action="/symptoms" method="post" class="data-form symptom-form">
@@ -334,7 +418,7 @@
             {% else %}<p class="empty-text">No symptoms have been reported yet.</p>{% endfor %}
           </div>
         </div>
-        <div id="followups" class="panel lower-panel">
+        <div id="followups" class="panel lower-panel" data-view-panel="followups">
           <div class="section-heading inside"><div><div class="eyebrow">SCHEDULING</div><h2>Upcoming Check-ups</h2></div></div>
           <div class="followup-list">
             {% for f in followups[:5] %}
@@ -356,7 +440,7 @@
       </section>
 
       {% if role == 'clinician' %}
-      <section class="section-block">
+      <section class="section-block" id="vr-sessions" data-view-panel="visual-field">
         <div class="section-heading"><div><div class="eyebrow">DIGITAL ASSESSMENTS</div><h2>Virtual Reality Sessions</h2></div><span class="section-caption">Results received from Godot</span></div>
         <div class="panel table-panel">
           <div class="table-scroll"><table><thead><tr><th>Date</th><th>Session</th><th>Protocol</th><th>Task</th><th>Eye Tracking</th><th>Received metrics</th></tr></thead><tbody>
@@ -383,6 +467,11 @@
     const sleepHours = {{ sleep_hours | safe }};
     const restingHR = {{ hr_resting | safe }};
 
+    if (window.Chart) {
+      Chart.defaults.color = '#B6A7CA';
+      Chart.defaults.font.family = 'DM Sans';
+    }
+
     const axisOptions = {
       responsive: true,
       maintainAspectRatio: false,
@@ -397,8 +486,8 @@
       new Chart(vfCanvas, {
         type: 'line',
         data: { labels: visualFieldLabels, datasets: [
-          { label: 'OD', data: visualFieldOD, borderColor: '#25bfe1', backgroundColor: 'rgba(37,191,225,.12)', pointBackgroundColor: '#25bfe1', pointRadius: 3, borderWidth: 2, tension: .3, spanGaps: true },
-          { label: 'OS', data: visualFieldOS, borderColor: '#ff6846', backgroundColor: 'rgba(255,104,70,.10)', pointBackgroundColor: '#ff6846', pointRadius: 3, borderWidth: 2, tension: .3, spanGaps: true }
+          { label: 'OD', data: visualFieldOD, borderColor: '#C7A4FF', backgroundColor: 'rgba(199,164,255,.12)', pointBackgroundColor: '#C7A4FF', pointRadius: 3, borderWidth: 2, tension: .3, spanGaps: true },
+          { label: 'OS', data: visualFieldOS, borderColor: '#FF8DD2', backgroundColor: 'rgba(255,141,210,.10)', pointBackgroundColor: '#FF8DD2', pointRadius: 3, borderWidth: 2, tension: .3, spanGaps: true }
         ]},
         options: { ...axisOptions, scales: { ...axisOptions.scales, y: { ...axisOptions.scales.y, min: 0, max: 100, ticks: { ...axisOptions.scales.y.ticks, callback: value => value + '%' } } } }
       });
@@ -408,8 +497,8 @@
       new Chart(wearableCanvas, {
         type: 'line',
         data: { labels: wearableLabels, datasets: [
-          { label: 'Sleep (h)', data: sleepHours, borderColor: '#25bfe1', pointRadius: 2, borderWidth: 2, tension: .3, yAxisID: 'y' },
-          { label: 'Resting HR (bpm)', data: restingHR, borderColor: '#ffb23e', pointRadius: 2, borderWidth: 2, tension: .3, yAxisID: 'y1' }
+          { label: 'Sleep (h)', data: sleepHours, borderColor: '#C7A4FF', pointRadius: 2, borderWidth: 2, tension: .3, yAxisID: 'y' },
+          { label: 'Resting HR (bpm)', data: restingHR, borderColor: '#8BD9F0', pointRadius: 2, borderWidth: 2, tension: .3, yAxisID: 'y1' }
         ]},
         options: { ...axisOptions, scales: {
           ...axisOptions.scales,
@@ -445,6 +534,76 @@
     focusButtons.forEach(button => button.addEventListener('click', () => setStudyFocus(button.dataset.focus, button)));
     const defaultFocus = document.querySelector('.focus-chip.active');
     if (defaultFocus) setStudyFocus(defaultFocus.dataset.focus, defaultFocus);
+
+
+    // Simple section navigation: keep the overview summary visible and show
+    // only the selected clinical workspace view below it.
+    const navViewLinks = Array.from(document.querySelectorAll('.side-link[data-view]'));
+    const viewPanels = Array.from(document.querySelectorAll('[data-view-panel]'));
+    const viewContainers = Array.from(document.querySelectorAll('[data-view-container]'));
+    const supportedViews = new Set(['overview', 'visual-field', 'clinical-data', 'wearables', 'symptoms', 'followups']);
+    const viewCopy = {
+      overview: ['Mission Health Status', 'Functional and physiological monitoring throughout the mission.'],
+      'visual-field': ['VR & Visual Field', 'Visual-field performance, eye tracking and received VR session data.'],
+      'clinical-data': ['Physical Tests', 'Externally measured visual acuity, refraction and near-point assessments.'],
+      wearables: ['Wearables & Telemetry', 'Daily physiological records and device data imports.'],
+      symptoms: ['Symptoms & Notes', 'Self-reported symptoms and chronological clinical notes.'],
+      followups: ['Follow-up', 'Upcoming check-ups and previous follow-up records.']
+    };
+
+    function setDashboardView(requestedView, updateAddress = true) {
+      const view = supportedViews.has(requestedView) ? requestedView : 'overview';
+
+      // Only the selected workspace is shown. The mission header, route,
+      // astronaut profile, study-focus panel and body diagram stay in place.
+      viewPanels.forEach(panel => {
+        const isCurrentView = panel.dataset.viewPanel === view;
+        panel.classList.toggle('is-view-hidden', !isCurrentView);
+        panel.setAttribute('aria-hidden', isCurrentView ? 'false' : 'true');
+      });
+
+      viewContainers.forEach(container => {
+        const childPanels = Array.from(container.querySelectorAll(':scope > [data-view-panel]'));
+        const hasVisiblePanel = childPanels.some(panel => panel.dataset.viewPanel === view);
+        container.classList.toggle('is-view-hidden', !hasVisiblePanel);
+        container.setAttribute('aria-hidden', hasVisiblePanel ? 'false' : 'true');
+      });
+
+      navViewLinks.forEach(link => {
+        const selected = link.dataset.view === view;
+        link.classList.toggle('active', selected);
+        if (selected) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+
+      const heading = document.querySelector('.page-heading h1');
+      const description = document.querySelector('.page-heading p');
+      if (heading) heading.textContent = viewCopy[view][0];
+      if (description) description.textContent = viewCopy[view][1];
+
+      if (updateAddress && window.location.hash !== '#' + view) {
+        window.history.pushState({ dashboardView: view }, '', '#' + view);
+      }
+    }
+
+    navViewLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        setDashboardView(link.dataset.view);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    window.addEventListener('hashchange', () => {
+      setDashboardView(window.location.hash.slice(1), false);
+    });
+    window.addEventListener('popstate', () => {
+      setDashboardView(window.location.hash.slice(1), false);
+    });
+
+    const initialView = window.location.hash.slice(1);
+    setDashboardView(initialView, false);
+    document.documentElement.classList.add('dashboard-ready');
 
   </script>
 </body>
