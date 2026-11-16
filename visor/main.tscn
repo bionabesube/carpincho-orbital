@@ -36,7 +36,8 @@ default_color = Color(0.65882355, 0.47058824, 0.9411765, 1)
 [node name="Background" parent="." unique_id=591175879 instance=ExtResource("1_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
-[node name="CustomCursor" parent="." unique_id=1144485234 instance=ExtResource("4_1bvp3")]
+[node name="CustomCursor" parent="." unique_id=1144485234 node_paths=PackedStringArray("camera") instance=ExtResource("4_1bvp3")]
+camera = NodePath("../Camera3D")
 
 [connection signal="eyeTraking_pressed" from="Camera3D/MainMenu" to="Screen" method="_on_main_menu_eye_traking_pressed"]
 [connection signal="fieldOfView_pressed" from="Camera3D/MainMenu" to="Camera3D/TestFieldOfView" method="_on_main_menu_field_of_view_pressed"]

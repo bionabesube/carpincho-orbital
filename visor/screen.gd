@@ -133,15 +133,6 @@ func _on_main_menu_field_of_view_pressed() -> void:
 func _on_main_menu_eye_traking_pressed() -> void:
 	cambiar_fondo()
 	spawn_still_target()
-	spawn_still_target()
-	spawn_still_target()
-	spawn_still_target()
-	spawn_still_target()
-	spawn_still_target()
-	spawn_still_target()
-	spawn_still_target()
-	spawn_still_target()
-	spawn_still_target()
 
 func spawn_still_target() -> void:
 	var position_x = rng.randf_range(-1.45, 1.45)
