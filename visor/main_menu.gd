@@ -17,8 +17,10 @@ func _process(delta: float) -> void:
 func _on_field_of_view_pressed() -> void:
 	fieldOfView_pressed.emit()
 	hide()
+	get_tree().current_scene.get_node("Background2").show()
 
 
 func _on_eye_traking_pressed() -> void:
 	eyeTraking_pressed.emit()
 	hide()
+	get_tree().current_scene.get_node("Background2").show()
