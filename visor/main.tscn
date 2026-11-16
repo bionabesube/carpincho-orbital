@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://fp24q0gq7jh2" path="res://custom_cursor.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c5riypfo77dx4" path="res://target.tscn" id="5_272bh"]
 [ext_resource type="Texture2D" uid="uid://bvnxubhcy0tp7" path="res://images/fondo2.png" id="7_272bh"]
+[ext_resource type="Script" uid="uid://bqd13d62rsh27" path="res://background_2.gd" id="8_5vw27"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_h0b3p"]
 
@@ -51,7 +52,13 @@ transform = Transform3D(5.5, 0, 0, 0, 3.3, 0, 0, 0, 4, 0, 0, -2)
 visible = false
 mesh = SubResource("QuadMesh_h0b3p")
 surface_material_override/0 = SubResource("StandardMaterial3D_m7j1s")
+script = ExtResource("8_5vw27")
 
 [connection signal="eyeTraking_pressed" from="Camera3D/MainMenu" to="Screen" method="_on_main_menu_eye_traking_pressed"]
+[connection signal="eyeTraking_pressed" from="Camera3D/MainMenu" to="Background2" method="_on_main_menu_eye_traking_pressed"]
 [connection signal="fieldOfView_pressed" from="Camera3D/MainMenu" to="Camera3D/TestFieldOfView" method="_on_main_menu_field_of_view_pressed"]
 [connection signal="fieldOfView_pressed" from="Camera3D/MainMenu" to="Screen" method="_on_main_menu_field_of_view_pressed"]
+[connection signal="fieldOfView_pressed" from="Camera3D/MainMenu" to="Background2" method="_on_main_menu_field_of_view_pressed"]
+[connection signal="space_pressed" from="Camera3D/TestFieldOfView" to="Camera3D/MainMenu" method="_on_test_field_of_view_space_pressed"]
+[connection signal="space_pressed" from="Camera3D/TestFieldOfView" to="Screen" method="_on_test_field_of_view_space_pressed"]
+[connection signal="space_pressed" from="Camera3D/TestFieldOfView" to="Background2" method="_on_test_field_of_view_space_pressed"]

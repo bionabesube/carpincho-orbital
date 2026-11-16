@@ -8,7 +8,6 @@ func _ready():
 
 func _process(delta):
 	global_position = get_global_mouse_position()
-	print(get_mouse_world_position())
 
 func get_mouse_world_position() -> Vector2:
 	var mouse_position = get_viewport().get_mouse_position()

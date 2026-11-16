@@ -3,6 +3,8 @@ extends Node3D
 
 @export var target_scene: PackedScene
 var target_speed: float = 0.25
+var target = null
+var limited = false
 @export var ancho: float = 4.2
 @export var alto: float = 1.8
 @export var curvatura: float = 0.30
@@ -111,13 +113,18 @@ func cambiar_fondo() -> void:
 		material_fondo.albedo_texture = textura_original
 		material_fondo.albedo_color = Color.WHITE
 
-
-
+func _process(delta: float) -> void:
+	if limited:
+		if target != null:
+			if target.position.x < 0:
+				target.queue_free()
+				target = null
 
 func _on_main_menu_field_of_view_pressed() -> void:
 	cambiar_fondo()
 	
-	var target = target_scene.instantiate()
+	target = target_scene.instantiate()
+	limited = true
 	
 	add_child(target)
 	
@@ -125,13 +132,13 @@ func _on_main_menu_field_of_view_pressed() -> void:
 	
 	target.set_up(
 		Vector2(-1, 0),
-		target_speed,
-		true
+		target_speed
 	)
 
 
 func _on_main_menu_eye_traking_pressed() -> void:
 	cambiar_fondo()
+	limited = false
 	spawn_still_target()
 
 func spawn_still_target() -> void:
@@ -139,7 +146,7 @@ func spawn_still_target() -> void:
 	var position_y = rng.randf_range(-0.7, 0.7)
 	var position_z = -0.3
 	
-	var target = target_scene.instantiate()
+	target = target_scene.instantiate()
 	
 	add_child(target)
 	
@@ -148,7 +155,17 @@ func spawn_still_target() -> void:
 	
 	target.set_up(
 		Vector2(0, 0),
-		0.0,
-		false
+		0.0
 	)
 	
+
+
+func _on_test_field_of_view_space_pressed() -> void:
+	cambiar_fondo()
+	print("Yuliana aca screen.gd")
+	print("Patita tu nana aca")
+	if target != null:
+		print(target.position.x)
+		target.queue_free()
+		target = null
+	limited = false

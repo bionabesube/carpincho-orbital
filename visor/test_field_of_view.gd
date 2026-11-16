@@ -1,5 +1,6 @@
 extends Control
 
+signal space_pressed()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,3 +14,8 @@ func _process(delta: float) -> void:
 
 func _on_main_menu_field_of_view_pressed() -> void:
 	show()
+
+
+func _on_button_pressed() -> void:
+	hide()
+	space_pressed.emit()
