@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://djuiwvkt2mshw" path="res://test_field_of_view.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://fp24q0gq7jh2" path="res://custom_cursor.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c5riypfo77dx4" path="res://target.tscn" id="5_272bh"]
+[ext_resource type="Texture2D" uid="uid://bvnxubhcy0tp7" path="res://images/fondo2.png" id="7_272bh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_h0b3p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7j1s"]
+shading_mode = 0
+albedo_texture = ExtResource("7_272bh")
 
 [node name="Main" type="Node3D" unique_id=408378875]
 transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
@@ -37,6 +44,12 @@ default_color = Color(0.65882355, 0.47058824, 0.9411765, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="CustomCursor" parent="." unique_id=1144485234 instance=ExtResource("4_1bvp3")]
+
+[node name="Background2" type="MeshInstance3D" parent="." unique_id=1711049131]
+transform = Transform3D(5.5, 0, 0, 0, 3.3, 0, 0, 0, 4, 0, 0, -2)
+visible = false
+mesh = SubResource("QuadMesh_h0b3p")
+surface_material_override/0 = SubResource("StandardMaterial3D_m7j1s")
 
 [connection signal="eyeTraking_pressed" from="Camera3D/MainMenu" to="Screen" method="_on_main_menu_eye_traking_pressed"]
 [connection signal="fieldOfView_pressed" from="Camera3D/MainMenu" to="Camera3D/TestFieldOfView" method="_on_main_menu_field_of_view_pressed"]
