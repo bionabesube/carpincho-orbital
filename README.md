@@ -2,7 +2,7 @@
 
 ## 1. Installation and Testing
 
-To test the application, download the following two files from the latest release:
+To test the application, download the following two files from exes folder:
 
 - `visor.exe`
 - `visor.pck`
