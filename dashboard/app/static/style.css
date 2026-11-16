@@ -1126,3 +1126,142 @@ select option { color: #F3ECFF; background: #181025; }
     transition-duration: .01ms !important;
   }
 }
+
+
+/* =========================================================
+   CARPINCHO ORBITAL — SECTION WORKSPACES + BODY MAP REFINEMENT
+   ========================================================= */
+
+/* Keep the mission shell persistent; only [data-view-panel] content changes. */
+.kpi-grid[data-view-panel="overview"] {
+  margin-top: 0;
+}
+
+[data-view-panel].is-view-hidden,
+[data-view-container].is-view-hidden {
+  display: none !important;
+}
+
+[data-view-panel]:not(.is-view-hidden) {
+  animation: workspaceEnter .22s ease both;
+}
+
+@keyframes workspaceEnter {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Improve the persistent study-focus panel and give the anatomical figure room. */
+.study-focus {
+  grid-template-columns: minmax(0, 1.25fr) minmax(270px, .85fr);
+  min-height: 350px;
+  padding: 20px 24px;
+  gap: 24px;
+}
+
+.anatomy-visual-wrap {
+  min-height: 316px;
+  padding: 8px 12px 8px 20px;
+  gap: 8px;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(174, 132, 239, .16), transparent 66%),
+    linear-gradient(180deg, rgba(255,255,255,.015), transparent);
+}
+
+.anatomy-visual {
+  display: block;
+  width: auto;
+  height: 318px;
+  max-width: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0 22px rgba(189, 145, 255, .12));
+}
+
+.body-outline {
+  opacity: .96;
+}
+
+.body-outline .body-detail {
+  fill: none;
+  stroke: rgba(232, 216, 255, .43);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.body-outline .body-detail-soft {
+  fill: none;
+  stroke: rgba(198, 165, 244, .29);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.body-map-part {
+  opacity: .23;
+  transition: opacity .28s ease, filter .28s ease;
+}
+
+.body-map-part.is-active {
+  opacity: 1;
+}
+
+.part-eyes.is-active,
+.part-optic.is-active,
+.part-brain.is-active,
+.part-wrist.is-active {
+  filter:
+    drop-shadow(0 0 6px rgba(224, 194, 255, .78))
+    drop-shadow(0 0 15px rgba(189, 145, 255, .38));
+}
+
+.anatomy-ring {
+  opacity: .22;
+  stroke: rgba(203, 174, 255, .66);
+  animation: bodyRingPulse 5s ease-in-out infinite;
+  transform-origin: 180px 207px;
+}
+
+.anatomy-callouts {
+  stroke: rgba(205, 177, 255, .62);
+}
+
+.anatomy-labels {
+  fill: #D5C2F1;
+  font: 700 8px 'DM Sans', sans-serif;
+  letter-spacing: 1px;
+}
+
+.anatomy-caption {
+  color: #C8B7DC;
+  font-size: 8px;
+  letter-spacing: .9px;
+  text-align: center;
+}
+
+@keyframes bodyRingPulse {
+  50% { opacity: .38; }
+}
+
+@media (max-width: 1050px) {
+  .study-focus { grid-template-columns: 1fr; }
+  .anatomy-visual-wrap {
+    min-height: 300px;
+    border-left: 0;
+    border-top: 1px solid rgba(198, 166, 255, .16);
+    padding: 14px 0 0;
+  }
+  .anatomy-visual { height: 300px; }
+}
+
+@media (max-width: 520px) {
+  .study-focus { padding: 14px; }
+  .anatomy-visual-wrap { min-height: 270px; }
+  .anatomy-visual { height: 265px; max-width: 100%; }
+}
+
+
+/* Avoid a brief full-report flash before the view switcher initializes. */
+html:not(.dashboard-ready) [data-view-panel]:not([data-view-panel="overview"]) {
+  display: none;
+}
