@@ -26,3 +26,11 @@ func _on_eye_traking_pressed() -> void:
 
 func _on_test_field_of_view_space_pressed() -> void:
 	show()
+
+
+func _on_screen_end_test_eye_traking() -> void:
+	show()
+
+
+func _on_screen_fov_found(fov: float) -> void:
+	$FOV_result.set_text(str(round(fov*10)/10))

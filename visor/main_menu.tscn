@@ -41,7 +41,7 @@ layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, -20)
 theme_override_font_sizes/font_size = 28
-text = "Visual Training"
+text = "Visual Evaluation"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1322043358]
@@ -90,7 +90,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_h0b3p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h0b3p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h0b3p")
 text = "
-   Seguimiento Ocular  >"
+   Object traking  >"
 
 [node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/EyeTraking" unique_id=37555301]
 modulate = Color(0.6156863, 0.4627451, 0.93333334, 1)
@@ -124,6 +124,24 @@ offset_bottom = 120.0
 texture = ExtResource("2_7vrkn")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="FOV_result" type="Label" parent="." unique_id=179246480]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 408.0
+offset_right = 561.0
+offset_bottom = 448.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OT_result" type="Label" parent="." unique_id=1493280084]
+layout_mode = 0
+offset_left = 591.0
+offset_top = 408.0
+offset_right = 791.0
+offset_bottom = 448.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/FieldOfView" to="." method="_on_field_of_view_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/EyeTraking" to="." method="_on_eye_traking_pressed"]

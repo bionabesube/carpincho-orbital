@@ -21,3 +21,7 @@ func _on_main_menu_eye_traking_pressed() -> void:
 
 func _on_main_menu_field_of_view_pressed() -> void:
 	show()
+
+
+func _on_screen_end_test_eye_traking() -> void:
+	hide()

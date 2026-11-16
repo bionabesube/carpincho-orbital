@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c3dtaeqvfbyai" path="res://background.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://1nvxvxtx3aq6" path="res://screen.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://djuiwvkt2mshw" path="res://test_field_of_view.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dnt3os71e1u3m" path="res://test_eye_traking.tscn" id="3_4c57u"]
 [ext_resource type="PackedScene" uid="uid://fp24q0gq7jh2" path="res://custom_cursor.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://3fk1yicm0cgi" path="res://test_eye_traking.gd" id="4_efxa6"]
 [ext_resource type="PackedScene" uid="uid://c5riypfo77dx4" path="res://target.tscn" id="5_272bh"]
 [ext_resource type="Texture2D" uid="uid://bvnxubhcy0tp7" path="res://images/fondo2.png" id="7_272bh"]
 [ext_resource type="Script" uid="uid://bqd13d62rsh27" path="res://background_2.gd" id="8_5vw27"]
@@ -24,6 +26,10 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="TestFieldOfView" parent="Camera3D" unique_id=864330123 instance=ExtResource("2_lquwl")]
 visible = false
+
+[node name="test_eye_traking" parent="Camera3D" unique_id=955101870 instance=ExtResource("3_4c57u")]
+visible = false
+script = ExtResource("4_efxa6")
 
 [node name="Screen" parent="." unique_id=1347283870 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, -2)
@@ -54,6 +60,7 @@ mesh = SubResource("QuadMesh_h0b3p")
 surface_material_override/0 = SubResource("StandardMaterial3D_m7j1s")
 script = ExtResource("8_5vw27")
 
+[connection signal="eyeTraking_pressed" from="Camera3D/MainMenu" to="Camera3D/test_eye_traking" method="_on_main_menu_eye_traking_pressed"]
 [connection signal="eyeTraking_pressed" from="Camera3D/MainMenu" to="Screen" method="_on_main_menu_eye_traking_pressed"]
 [connection signal="eyeTraking_pressed" from="Camera3D/MainMenu" to="Background2" method="_on_main_menu_eye_traking_pressed"]
 [connection signal="fieldOfView_pressed" from="Camera3D/MainMenu" to="Camera3D/TestFieldOfView" method="_on_main_menu_field_of_view_pressed"]
@@ -62,3 +69,10 @@ script = ExtResource("8_5vw27")
 [connection signal="space_pressed" from="Camera3D/TestFieldOfView" to="Camera3D/MainMenu" method="_on_test_field_of_view_space_pressed"]
 [connection signal="space_pressed" from="Camera3D/TestFieldOfView" to="Screen" method="_on_test_field_of_view_space_pressed"]
 [connection signal="space_pressed" from="Camera3D/TestFieldOfView" to="Background2" method="_on_test_field_of_view_space_pressed"]
+[connection signal="FOV_found" from="Screen" to="Camera3D/MainMenu" method="_on_screen_fov_found"]
+[connection signal="end_test_eye_traking" from="Screen" to="Camera3D/MainMenu" method="_on_screen_end_test_eye_traking"]
+[connection signal="end_test_eye_traking" from="Screen" to="Camera3D/test_eye_traking" method="_on_screen_end_test_eye_traking"]
+[connection signal="end_test_eye_traking" from="Screen" to="Screen" method="_on_end_test_eye_traking"]
+[connection signal="end_test_eye_traking" from="Screen" to="Background2" method="_on_screen_end_test_eye_traking"]
+[connection signal="new_target_position" from="Screen" to="CustomCursor" method="_on_screen_new_target_position"]
+[connection signal="target_found" from="CustomCursor" to="Screen" method="_on_custom_cursor_target_found"]

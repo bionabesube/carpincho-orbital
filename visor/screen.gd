@@ -1,10 +1,15 @@
 @tool
 extends Node3D
 
+signal new_target_position(position: Vector2, traking: bool)
+signal end_test_eye_traking()
+signal FOV_found(fov: float)
+
 @export var target_scene: PackedScene
 var target_speed: float = 0.25
 var target = null
 var limited = false
+var target_count = 0
 @export var ancho: float = 4.2
 @export var alto: float = 1.8
 @export var curvatura: float = 0.30
@@ -145,6 +150,7 @@ func spawn_still_target() -> void:
 	var position_x = rng.randf_range(-1.45, 1.45)
 	var position_y = rng.randf_range(-0.7, 0.7)
 	var position_z = -0.3
+	new_target_position.emit(Vector2(position_x, position_y), true)
 	
 	target = target_scene.instantiate()
 	
@@ -166,6 +172,24 @@ func _on_test_field_of_view_space_pressed() -> void:
 	print("Patita tu nana aca")
 	if target != null:
 		print(target.position.x)
+		var FOV_angle = rad_to_deg(atan(target.position.x / 2))
+		FOV_found.emit(FOV_angle)
 		target.queue_free()
 		target = null
 	limited = false
+
+
+func _on_custom_cursor_target_found() -> void:
+	new_target_position.emit(Vector2(0, 0), false)
+	target.queue_free()
+	target_count += 1
+	if target_count < 10:
+		spawn_still_target()
+	else:
+		target_count = 0
+		end_test_eye_traking.emit()
+		
+
+
+func _on_end_test_eye_traking() -> void:
+	cambiar_fondo()
